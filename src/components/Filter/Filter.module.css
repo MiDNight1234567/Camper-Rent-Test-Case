@@ -1,0 +1,138 @@
+.filterForm {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(16, 24, 40, 0.6);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.locationInput {
+  border-radius: 10px;
+  padding: 18px 18px 18px 48px;
+  width: 360px;
+  height: 56px;
+  background-color: var(--background-inputs);
+  border: none;
+}
+
+.locationInput:focus,
+.locationInput:hover {
+  outline: transparent;
+}
+
+.iconMap {
+  width: 18px;
+  height: 20px;
+  stroke: rgba(16, 24, 40, 0.6);
+  fill: none;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+
+  transition: var(--anim);
+}
+
+.inputWrapper:focus-within .iconMap,
+.inputWrapper:hover .iconMap {
+  stroke: var(--main-color);
+}
+
+.filterEquipment {
+  margin-top: 14px;
+}
+
+.filterTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main-color);
+  position: relative;
+}
+
+.filterTitle::before {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  right: 0px;
+  transform: translateY(-50%);
+  display: block;
+  width: 360px;
+  height: 1px;
+  background-color: rgba(16, 24, 40, 0.1);
+}
+
+.filterList {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filterItem {
+  width: 112px;
+  height: 95px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  padding: 0 17px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--anim);
+}
+
+.filterItem:hover,
+.filterItem:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.iconFilter {
+  width: 32px;
+  height: 32px;
+  fill: var(--main-color);
+}
+
+.iconFilterStr {
+  width: 32px;
+  height: 32px;
+  fill: var(--main-white);
+  stroke: var(--main-color);
+}
+
+.searchButton {
+  margin-top: 32px;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 173px;
+  height: 56px;
+  background-color: var(--accent-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--main-white);
+  border: none;
+  transition: var(--anim);
+}
+
+.searchButton:hover {
+  background-color: var(--accent-second-color);
+}
