@@ -1,0 +1,226 @@
+.modalOpen {
+  overflow: hidden;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(47, 47, 47, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modalContent {
+  position: relative;
+  width: fit-content;
+  width: 982px;
+  border-radius: 20px;
+  padding: 40px;
+  background-color: var(--main-white);
+  box-shadow: 0 4px 50px 0 rgba(245, 189, 189, 0.1);
+  height: 90%;
+  overflow: hidden;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  transition: var(--anim);
+}
+
+.modalCloseButton:hover .iconClose {
+  stroke: var(--second-color);
+}
+
+.iconClose {
+  width: 32px;
+  height: 32px;
+  stroke: var(--main-color);
+}
+
+.modalMainInfo {
+  margin-bottom: 24px;
+}
+
+.modalTitle {
+  max-width: 864px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.modalMainDescr {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 16px;
+}
+
+.iconRating {
+  width: 16px;
+  height: 16px;
+  fill: var(--add-color);
+  stroke: var(--add-color);
+  margin-right: 4px;
+}
+
+.modalRating,
+.modalReviews {
+  text-decoration: underline;
+}
+
+.iconMap {
+  width: 16px;
+  height: 16px;
+  stroke: var(--main-color);
+  fill: none;
+  margin-left: 16px;
+  margin-right: 4px;
+}
+
+.modalPrice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--main-color);
+}
+
+.modalInfo {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modalInfo::-webkit-scrollbar-button {
+  display: none;
+}
+
+.modalInfo::-webkit-scrollbar {
+  height: 264px;
+  width: 8px;
+}
+
+.modalInfo::-webkit-scrollbar-track {
+  background: inherit;
+  border-radius: 7px;
+}
+
+.modalInfo::-webkit-scrollbar-thumb {
+  background-color: #f0eff4;
+  border-radius: 7px;
+  border: 3px solid #f0eff4;
+  transition: var(--anim);
+}
+
+.modalInfo::-webkit-scrollbar-thumb:hover {
+  background-color: #d9d9d9;
+  border: 3px solid #d9d9d9;
+}
+
+.imgContainer {
+  width: 902px;
+  height: 310px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.camperImg {
+  border-radius: 10px;
+  width: 290px;
+  height: 310px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.modalDescription {
+  margin-bottom: 34px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--second-color);
+}
+
+.buttonWrapper {
+  position: relative;
+  margin-bottom: 68px;
+  display: flex;
+  gap: 40px;
+}
+
+.buttonWrapper::before {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  right: 0px;
+  transform: translateY(-50%);
+  display: block;
+  width: 902px;
+  height: 1px;
+  background-color: rgba(16, 24, 40, 0.2);
+}
+
+.buttonAddInfo {
+  background-color: transparent;
+  border: none;
+  padding: 10px 0px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main-color);
+  transition: var(--anim);
+}
+
+.activeTab {
+  background-color: transparent;
+  border: none;
+  padding: 10px 0px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main-color);
+  transition: var(--anim);
+  position: relative;
+}
+
+.activeTab::before {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  right: -8px;
+  transform: translateY(-50%);
+  display: block;
+  width: 120%;
+  height: 5px;
+  background-color: var(--accent-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.activeContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.featuresInfo,
+.reviewsInfo {
+  width: 430px;
+}

@@ -64,6 +64,7 @@
     width: 1440px;
     background-size: cover;
   }
+
   .backHome:hover {
     color: var(--main-color);
     background-color: var(--accent-color);
