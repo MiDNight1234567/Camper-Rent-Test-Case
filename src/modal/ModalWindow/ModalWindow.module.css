@@ -37,7 +37,8 @@
   transition: var(--anim);
 }
 
-.modalCloseButton:hover .iconClose {
+.modalCloseButton:focus-visible .iconClose,
+.modalCloseButton:active .iconClose {
   stroke: var(--accent-color);
   fill: var(--accent-color);
 }
@@ -57,5 +58,12 @@
   .iconClose {
     width: 32px;
     height: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .modalCloseButton:hover .iconClose {
+    stroke: var(--accent-color);
+    fill: var(--accent-color);
   }
 }

@@ -52,7 +52,6 @@ input {
   font-family: inherit;
 }
 
-/* DatePicker */
 .react-datepicker__header {
   margin-top: 6px;
   background-color: var(--main-white);

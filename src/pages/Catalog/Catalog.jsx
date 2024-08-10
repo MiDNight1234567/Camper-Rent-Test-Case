@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Catalog.module.css';
-
 import DocumentTitle from '../../components/DocumentTitle/DocumentTitle';
 import Filter from '../../components/Filter/Filter';
 import CamperList from '../../components/CamperList/CamperList';

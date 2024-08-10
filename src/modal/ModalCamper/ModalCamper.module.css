@@ -1,53 +1,14 @@
-.modalOpen {
-  overflow: hidden;
-}
-
-.modalBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(47, 47, 47, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-  height: 100%;
-  overflow: hidden;
-}
-
-.modalContent {
-  position: relative;
+.modalBody {
+  min-width: 288px;
+  max-width: 348px;
   width: fit-content;
-  width: 982px;
   border-radius: 20px;
-  padding: 40px;
+  padding: 20px;
+  padding-right: 8px;
   background-color: var(--main-white);
   box-shadow: 0 4px 50px 0 rgba(245, 189, 189, 0.1);
-  height: 90%;
+  height: 100%;
   overflow: hidden;
-}
-
-.modalCloseButton {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0px;
-  transition: var(--anim);
-}
-
-.modalCloseButton:hover .iconClose {
-  stroke: var(--second-color);
-}
-
-.iconClose {
-  width: 32px;
-  height: 32px;
-  stroke: var(--main-color);
 }
 
 .modalMainInfo {
@@ -55,13 +16,13 @@
 }
 
 .modalTitle {
-  max-width: 864px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: 240px;
+  text-overflow: clip;
+  white-space: wrap;
   overflow: hidden;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 1.25;
+  font-size: 20px;
+  line-height: 24px;
   color: var(--main-color);
   margin-bottom: 10px;
 }
@@ -96,15 +57,16 @@
 
 .modalPrice {
   font-weight: 600;
-  font-size: 24px;
-  line-height: 1.25;
+  font-size: 20px;
+  line-height: 24px;
   color: var(--main-color);
 }
 
 .modalInfo {
-  height: 100%;
+  height: 80%;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-right: 8px;
 }
 
 .modalInfo::-webkit-scrollbar-button {
@@ -134,18 +96,23 @@
 }
 
 .imgContainer {
-  width: 902px;
-  height: 310px;
   margin-bottom: 24px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 16px;
+}
+
+.imageWrapper {
+  border-radius: 10px;
+  background-color: var(--background-features);
+  min-width: 238px;
+  max-width: 304px;
+  width: 100%;
+  height: 171px;
 }
 
 .camperImg {
   border-radius: 10px;
-  width: 290px;
-  height: 310px;
   overflow: hidden;
   object-fit: cover;
 }
@@ -153,7 +120,7 @@
 .modalDescription {
   margin-bottom: 34px;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   color: var(--second-color);
 }
 
@@ -182,7 +149,7 @@
   padding: 10px 0px;
   font-weight: 600;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 24px;
   color: var(--main-color);
   transition: var(--anim);
 }
@@ -193,7 +160,7 @@
   padding: 10px 0px;
   font-weight: 600;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 24px;
   color: var(--main-color);
   transition: var(--anim);
   position: relative;
@@ -216,11 +183,128 @@
 }
 
 .activeContainer {
+  min-width: 238px;
+  max-width: 304px;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
 .featuresInfo,
 .reviewsInfo {
-  width: 430px;
+  min-width: 238px;
+  max-width: 304px;
+  width: 100%;
+}
+
+.featuresTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--main-color);
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.featuresTitle::before {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  right: 0px;
+  transform: translateY(-50%);
+  display: block;
+  width: 375px;
+  height: 1px;
+  background-color: rgba(16, 24, 40, 0.2);
+}
+
+@media only screen and (min-width: 375px) {
+  .modalTitle {
+    line-height: 30px;
+    max-width: 286px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .modalBody {
+    width: 704px;
+    max-width: fit-content;
+    padding: 40px;
+    padding-right: 16px;
+  }
+
+  .modalTitle {
+    font-size: 24px;
+    max-width: 592px;
+  }
+
+  .modalPrice {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .modalInfo {
+    padding-right: 16px;
+  }
+
+  .imageWrapper {
+    background-color: var(--background-features);
+    width: 624px;
+    max-width: 100%;
+    height: 351px;
+  }
+
+  .activeContainer {
+    width: 624px;
+    max-width: 100%;
+  }
+
+  .featuresInfo,
+  .reviewsInfo {
+    width: 624px;
+    max-width: 100%;
+  }
+
+  .featuresTitle::before {
+    width: 640px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .modalBody {
+    width: 982px;
+  }
+
+  .modalTitle {
+    max-width: 864px;
+  }
+
+  .imgContainer {
+    flex-direction: row;
+    width: 902px;
+  }
+
+  .imageWrapper {
+    width: 290px;
+    height: 310px;
+  }
+
+  .camperImg {
+    height: 310px;
+  }
+
+  .activeContainer {
+    flex-direction: row;
+    width: 902px;
+  }
+
+  .featuresInfo,
+  .reviewsInfo {
+    width: 430px;
+  }
+
+  .featuresTitle::before {
+    width: 430px;
+  }
 }

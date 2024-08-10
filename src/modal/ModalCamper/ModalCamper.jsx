@@ -1,27 +1,26 @@
-import Modal from 'react-modal';
-import css from './CamperModal.module.css';
-import Iconsvg from '../components/Icon/Icon';
 import { useState } from 'react';
-import BookForm from '../components/BookForm/BookForm';
 
-Modal.setAppElement('#root');
+import css from './ModalCamper.module.css';
 
-const CamperModal = ({ isOpen, closeModal, camper }) => {
+import Iconsvg from '../../components/Icon/Icon';
+import BookingForm from '../../components/BookingForm/BookingForm';
+import AdvantagesList from '../../components/AdvantagesList/AdvantagesList';
+import CamperTable from '../../components/CamperTable/CamperTable';
+import ReviewsList from '../../components/ReviewsList/ReviewsList';
+import CamperImage from '../ModalImage/ModalImage';
+import { useModalContext } from '../../context/useModalContext';
+
+const ModalCamper = ({ camper }) => {
   const [activeTab, setActiveTab] = useState('Features');
+
+  const { openModal } = useModalContext();
+
   const handleTabChange = tabName => {
     setActiveTab(tabName);
   };
+
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={closeModal}
-      className={css.modalContent}
-      overlayClassName={css.modalBackdrop}
-      shouldCloseOnOverlayClick={true}
-    >
-      <button className={css.modalCloseButton} onClick={closeModal}>
-        <Iconsvg iconName="close" className={css.iconClose} />
-      </button>
+    <div className={css.modalBody}>
       <div className={css.modalMainInfo}>
         <h2 className={css.modalTitle}>{camper.name}</h2>
         <div className={css.modalMainDescr}>
@@ -31,35 +30,28 @@ const CamperModal = ({ isOpen, closeModal, camper }) => {
             &#x2768;{camper.reviews.length} Reviews&#x2769;
           </p>
           <Iconsvg iconName="mapPin" className={css.iconMap} />
-          {/* <p className={css.modalLocation}>{camper.location}</p> */}
           <p>{camper.location}</p>
         </div>
-        <p className={css.modalPrice}>&#8364;{camper.price}.00</p>
+        <p className={css.modalPrice}>&#8364;{camper.price.toFixed(2)}</p>
       </div>
 
       <div className={css.modalInfo}>
         <ul className={css.imgContainer}>
-          <li>
-            <img
-              className={css.camperImg}
-              src={camper.gallery[0]}
-              alt={camper.name}
-            />
-          </li>
-          <li>
-            <img
-              className={css.camperImg}
-              src={camper.gallery[1]}
-              alt={camper.name}
-            />
-          </li>
-          <li>
-            <img
-              className={css.camperImg}
-              src={camper.gallery[2]}
-              alt={camper.name}
-            />
-          </li>
+          {camper.gallery.map((image, idx) => (
+            <li className={css.imageWrapper} key={idx}>
+              <img
+                src={image}
+                alt={camper.name}
+                className={css.camperImg}
+                onClick={() =>
+                  openModal(
+                    'images_modal',
+                    <CamperImage images={camper.gallery} imageIndex={idx} />
+                  )
+                }
+              />
+            </li>
+          ))}
         </ul>
         <div className={css.modalDescription}>{camper.description}</div>
         <div className={css.buttonWrapper}>
@@ -88,21 +80,23 @@ const CamperModal = ({ isOpen, closeModal, camper }) => {
           }
         >
           <div className={css.featuresInfo}>
-            <ul>
-              <li></li>
-            </ul>
+            <AdvantagesList camper={camper} />
+            <h3 className={css.featuresTitle}>Vehicle details</h3>
+            <CamperTable camper={camper} />
           </div>
-          <BookForm />
+          <BookingForm />
         </div>
         <div
           className={activeTab === 'Reviews' ? css.activeContainer : css.hidden}
         >
-          <div className={css.reviewsInfo}>Reviews Content</div>
-          <BookForm />
+          <div className={css.reviewsInfo}>
+            <ReviewsList reviews={camper.reviews} />
+          </div>
+          <BookingForm />
         </div>
       </div>
-    </Modal>
+    </div>
   );
 };
 
-export default CamperModal;
+export default ModalCamper;

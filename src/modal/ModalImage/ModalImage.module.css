@@ -9,28 +9,32 @@
   border-radius: 20px;
 }
 
-.imageModal {
+.imgContainer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
-  gap: 2px;
+  align-items: center;
+  background-color: var(--background-features);
+  border-radius: 15px;
+  min-width: 251px;
+  max-width: 668px;
+  width: 100%;
+  min-height: 144px;
 }
 
 .image {
-  display: block;
-  width: 100%;
   border-radius: 15px;
 }
 
 .back,
 .next {
   position: absolute;
-  background-color: transparent;
-  border: none;
-  padding: 100px 0;
   display: flex;
   align-items: center;
+  width: 50%;
+  height: 50%;
+  padding: 100% 0;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 
@@ -53,22 +57,34 @@
   transition: var(--anim);
 }
 
-.back:hover .arrow,
-.next:hover .arrow,
+.back:active .arrow,
+.next:active .arrow,
 .back:focus-visible .arrow,
 .next:focus-visible .arrow {
   fill: var(--accent-color);
 }
 
 @media only screen and (min-width: 768px) {
+  .imgContainer {
+    min-width: 668px;
+    max-width: 1045px;
+    width: 100%;
+    min-height: 390px;
+  }
+
   .arrow {
     width: 46px;
     height: 46px;
   }
-}
 
-@media only screen and (min-width: 768px) {
   .modalBody {
     padding: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .back:hover .arrow,
+  .next:hover .arrow {
+    fill: var(--accent-color);
   }
 }

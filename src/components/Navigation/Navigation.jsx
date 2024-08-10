@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-
 import css from './Navigation.module.css';
-
 import Iconsvg from '../Icon/Icon';
 
 const getNavLinkClassNames = ({ isActive }) =>

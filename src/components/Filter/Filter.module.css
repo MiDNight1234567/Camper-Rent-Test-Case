@@ -1,7 +1,10 @@
 .filterForm {
-  width: 360px;
+  min-width: 288px;
+  max-width: 375px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 32px;
 }
 
@@ -14,7 +17,7 @@
 .label {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   color: rgba(16, 24, 40, 0.6);
 }
 
@@ -24,16 +27,49 @@
 
 .locationInput {
   border-radius: 10px;
-  padding: 18px 18px 18px 48px;
-  width: 360px;
+  padding: 12px 12px 12px 48px;
+  min-width: 288px;
+  max-width: 343px;
+  width: 100%;
   height: 56px;
   background-color: var(--background-inputs);
   border: none;
+  cursor: none;
+  position: relative;
 }
 
 .locationInput:focus,
 .locationInput:hover {
   outline: transparent;
+}
+
+.dropdownList {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 12px;
+  min-width: 288px;
+  max-width: 375px;
+  width: 100%;
+  background-color: var(--background-inputs);
+  border-radius: 10px;
+}
+
+.dropdownItem {
+  cursor: pointer;
+  color: rgba(16, 24, 40, 0.5);
+  padding: 8px 8px 8px 48px;
+  border: 1px solid var(--main-white);
+  border-radius: 15px;
+  transition: var(--anim);
+}
+
+.dropdownItem:hover,
+.dropdownItem:focus {
+  color: var(--main-color);
 }
 
 .iconMap {
@@ -44,8 +80,8 @@
   position: absolute;
   top: 18px;
   left: 18px;
-
   transition: var(--anim);
+  z-index: 5;
 }
 
 .inputWrapper:focus-within .iconMap,
@@ -60,7 +96,7 @@
 .filterTitle {
   font-weight: 600;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 24px;
   color: var(--main-color);
   position: relative;
 }
@@ -84,8 +120,8 @@
   gap: 10px;
 }
 
-.filterItem {
-  width: 112px;
+.filterBoxChosed {
+  width: 102px;
   height: 95px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 10px;
@@ -99,22 +135,19 @@
   transition: var(--anim);
 }
 
-.filterItem:hover,
-.filterItem:focus {
+.filterBoxChosed:hover,
+.filterBoxChosed:focus {
   border: 1px solid var(--accent-color);
 }
 
 .iconFilter {
   width: 32px;
   height: 32px;
-  fill: var(--main-color);
 }
 
-.iconFilterStr {
-  width: 32px;
-  height: 32px;
-  fill: var(--main-white);
-  stroke: var(--main-color);
+.iconFilterCamper {
+  width: 40px;
+  height: 40px;
 }
 
 .searchButton {
@@ -126,13 +159,91 @@
   background-color: var(--accent-color);
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 24px;
   letter-spacing: -0.01em;
   color: var(--main-white);
   border: none;
   transition: var(--anim);
 }
 
-.searchButton:hover {
+.searchButton:active,
+.searchButton:focus-visible {
   background-color: var(--accent-second-color);
+}
+
+.error {
+  position: absolute;
+  left: 8px;
+  bottom: -18px;
+  color: var(--accent-color);
+  font-size: 12px;
+}
+
+.filterItem:has(input[type='checkbox']:checked) .filterBoxChosed,
+.filterItem:has(input[type='radio']:checked) .filterBoxChosed {
+  border: 2px solid var(--accent-color);
+}
+
+.filterLabel {
+  cursor: pointer;
+}
+
+.checkbox,
+.radio {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media only screen and (min-width: 375px) {
+  .locationInput {
+    width: 343px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .filterForm {
+    max-width: 100%;
+    width: 704px;
+  }
+
+  .locationInput {
+    padding: 18px 18px 18px 48px;
+    width: 640px;
+    max-width: 100%;
+  }
+
+  .filterBoxChosed {
+    width: 112px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .filterForm {
+    width: 360px;
+  }
+
+  .filterBoxChosed {
+    width: 112px;
+  }
+
+  .locationInput {
+    padding: 18px 18px 18px 48px;
+    width: 360px;
+  }
+
+  .searchButton:hover {
+    background-color: var(--accent-second-color);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+  .filterTitle::before {
+    left: 0px;
+    width: 640px;
+  }
 }
