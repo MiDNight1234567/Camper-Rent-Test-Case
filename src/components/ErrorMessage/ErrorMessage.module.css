@@ -18,7 +18,15 @@
 }
 
 .errorText {
-  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 40px; */
+  color: rgb(16, 24, 40);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
 }
 
 .backHome {
