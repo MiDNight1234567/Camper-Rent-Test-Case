@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import css from './CamperCard.module.css';
-
 import Iconsvg from '../Icon/Icon';
 import ModalCamper from '../../modals/ModalCamper/ModalCamper';
 import { addFavorite, removeFavorite } from '../../redux/favorite/slice';

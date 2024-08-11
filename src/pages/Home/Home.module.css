@@ -19,14 +19,15 @@
 .title {
   font-size: 36px;
   font-weight: bold;
-  color: var(--accent-second-color);
+  color: var(--main-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .subtitle {
   font-size: 30px;
   font-weight: 600;
   color: var(--main-color);
-  text-shadow: 2px 2px 4px rgba(234, 178, 196, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .bookLink {
@@ -38,6 +39,7 @@
   font-size: 36px;
   color: var(--accent-second-color);
   transition: var(--anim);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.507);
 }
 
 .bookLink:focus-visible,
@@ -62,5 +64,6 @@
   .bookLink:hover {
     color: var(--main-color);
     background-color: var(--accent-color);
+    border: 2px solid var(--main-color);
   }
 }
