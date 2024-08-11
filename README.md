@@ -56,8 +56,6 @@ development
 - Loading Spinner:
   <a href="https://mhnpd.github.io/react-loader-spinner/" target="_blank" rel="noreferrer">react-loader-spinner</a>
 
-  ![Spinner Image](src/assets/readme-gallery/spinner.png)
-
 - Styling: Custom
   <a href="https://www.w3schools.com/css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/></a>
   and
