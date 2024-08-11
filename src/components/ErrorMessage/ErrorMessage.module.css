@@ -27,6 +27,7 @@
   font-weight: 600;
   line-height: 30px;
   text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .backHome {
@@ -43,6 +44,7 @@
   font-size: 18px;
   color: var(--accent-second-color);
   transition: var(--anim);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .backHome:active,
@@ -75,5 +77,7 @@
   .backHome:hover {
     color: var(--main-color);
     background-color: var(--accent-color);
+    border: 2px solid var(--main-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 }

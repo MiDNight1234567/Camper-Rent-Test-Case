@@ -5,7 +5,7 @@ const ErrorMessage = ({ message = '' }) => {
   return (
     <section className={css.errorMessage}>
       <p className={css.errorText}>
-        &#x261D;
+        &#128517;
         {message.length > 0
           ? message
           : 'Whoops, something went wrong! Please try reloading this page!'}

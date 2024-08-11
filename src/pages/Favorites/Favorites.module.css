@@ -45,6 +45,7 @@
   font-size: 20px;
   color: var(--accent-second-color);
   transition: var(--anim);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .backToCatalog:focus-visible,
@@ -114,5 +115,7 @@
   .backToCatalog:hover {
     color: var(--main-color);
     background-color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--main-color);
   }
 }
